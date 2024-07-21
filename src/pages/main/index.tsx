@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import {
   MainContainer,
   ButtonContainer,
@@ -32,13 +32,13 @@ const AnimatedTitle = ({ text, onComplete }: { text: string, onComplete?: () => 
 };
 
 export function MainPage() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isSimClicked, setIsSimClicked] = useState(false);
+  // const [isSimClicked, setIsSimClicked] = useState(false);
   const [showSecondTitle, setShowSecondTitle] = useState(false);
 
   const handleSimClick = () => {
-    setIsSimClicked(true);
+    // setIsSimClicked(true);
   };
 
   useEffect(() => {
