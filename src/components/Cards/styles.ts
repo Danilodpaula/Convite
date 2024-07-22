@@ -22,34 +22,12 @@ export const MainContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  height: auto;
   padding: 20px;
-  background: red;
+  background: transparent;
 
   @media (max-width: 768px) {
     padding: 10px;
-  }
-`;
-
-// Container dos cards
-export const CardsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: 50vw;
-  gap: 10px;
-
-  @media (max-width: 1200px) {
-    width: 70vw;
-  }
-
-  @media (max-width: 992px) {
-    width: 80vw;
-  }
-
-  @media (max-width: 768px) {
-    width: 90vw;
   }
 `;
 
@@ -61,14 +39,22 @@ export const CardContainer = styled.div`
   justify-content: center;
   background: white;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   padding: 10px;
   width: 22%;
   height: auto;
+  min-height: 185px;
   opacity: 0;
   animation: ${fadeIn} 0.5s forwards;
   transition: 2s;
   animation-delay: 1s;
+  opacity: 0.9;
+
+  &:hover {
+    transition: 1s;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  }
 
   @media (max-width: 1200px) {
     width: 30%;
@@ -92,11 +78,13 @@ export const CardImage = styled.img`
   width: 100%;
   height: auto;
   border-radius: 5px;
+  border: 0.5px solid #d9d9d9;
+  box-shadow: 0px 0px 10px #d9d9d9;
 `;
 
 // Estilo da descrição dos cards
 export const CardDescription = styled.p`
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat";
   color: black;
   text-align: center;
   margin-top: 10px;

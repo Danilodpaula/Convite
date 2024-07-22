@@ -1,11 +1,20 @@
-import { useEffect, useRef } from "react";
-import { VideoBackground, MainContainer,  } from "./styles";
-import videoBg from "../../assets/videos/vecteezy_colorful-liquid-gradient-animation_2017303.mp4";
+import { useEffect, useRef, useState } from "react";
+import { CardsContainer, MainContainer, ZapLogo } from "./styles";
 import Card from "../../components/Cards";
-import { CardsContainer } from "../../components/Cards/styles";
+import { AnimatedTitle } from "../../components/AnimatedTitle";
+import doubt from "../../assets/images/question-mark-svgrepo-com.svg";
+import cinema from "../../assets/images/cinema.jpeg";
+import park from "../../assets/images/park.jpeg";
+import jazz from "../../assets/images/jazz.jpeg";
+import zap from "../../assets/images/zap.svg";
 
 export function OptionsPage() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [showSecondTitle, setShowSecondTitle] = useState(false);
+  const [showThirdTitle, setShowThirdTitle] = useState(false);
+  const [showZap, setShowZap] = useState(false);
+  const [showCards, setShowCards] = useState(false);
+  const [showEnd, setShowEnd] = useState(false);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -15,27 +24,90 @@ export function OptionsPage() {
 
   return (
     <MainContainer>
-      <VideoBackground ref={videoRef} autoPlay muted loop playsInline>
-        <source src={videoBg} type="video/mp4" />
-      </VideoBackground>
+      {!showEnd && (
+        <>
+          <AnimatedTitle
+            text="O que vamos fazer??"
+            onComplete={() => setShowSecondTitle(true)}
+          />
+          {showSecondTitle && (
+            <AnimatedTitle
+              text="Clique em uma opção:"
+              onComplete={() => setShowCards(true)}
+            />
+          )}
+        </>
+      )}
+
       <CardsContainer>
-        <Card
-          imageSrc="https://via.placeholder.com/150?text=Photo+1"
-          description="Descrição do Card 1"
-        />
-        <Card
-          imageSrc="https://via.placeholder.com/150?text=Photo+2"
-          description="Descrição do Card 2"
-        />
-        <Card
-          imageSrc="https://via.placeholder.com/150?text=Photo+3"
-          description="Descrição do Card 3"
-        />
-        <Card
-          imageSrc="https://via.placeholder.com/150?text=Photo+4"
-          description="Descrição do Card 4"
-        />
+        {showCards && (
+          <>
+            <Card
+              onClick={() => {
+                setShowEnd(true);
+                setShowCards(false);
+              }}
+              imageSrc={park}
+              description="Passear em algum parque/passar a tarde juntos"
+            />
+            <Card
+              onClick={() => {
+                setShowEnd(true);
+                setShowCards(false);
+              }}
+              imageSrc={cinema}
+              description="Ver algum filme mt foda no cinema (clichê)"
+            />
+            <Card
+              onClick={() => {
+                setShowEnd(true);
+                setShowCards(false);
+              }}
+              imageSrc={jazz}
+              description="Ver uma apresentação de Jazz no teatro (O de sexta parece do krlh)"
+            />
+            <Card
+              onClick={() => {
+                setShowEnd(true);
+                setShowCards(false);
+              }}
+              imageSrc={doubt}
+              description="Você escolhe!! Eu apenas concordo com tudo! (posso discordar)"
+            />
+          </>
+        )}
       </CardsContainer>
+      {showEnd && (
+        <>
+          <AnimatedTitle
+            text="Q FODAAAA!!!!"
+            onComplete={() => setShowThirdTitle(true)}
+          />
+          <br />
+          {!showThirdTitle && <AnimatedTitle text=" " />}
+          {showThirdTitle && (
+            <AnimatedTitle
+              text="A gente se fala pelo zap??"
+              onComplete={() => setShowZap(true)}
+            />
+          )}
+          {showZap && (
+            <>
+              <br />
+              <AnimatedTitle>
+                <ZapLogo
+                  src={zap}
+                  alt="Zap"
+                  onClick={() =>
+                    (window.location.href =
+                      "https://api.whatsapp.com/send/?phone=55092984373113&text&type=phone_number&app_absent=0")
+                  }
+                />
+              </AnimatedTitle>
+            </>
+          )}
+        </>
+      )}
     </MainContainer>
   );
 }

@@ -21,9 +21,43 @@ export const MainContainer = styled.div`
   width: 100vw;
   height: 100vh;
   padding: 20px;
+  background: red;
 
   @media (max-width: 768px) {
     padding: 10px;
+  }
+`;
+
+// Título com animação e responsividade
+export const Title = styled.h1`
+  font-family: "Montserrat", sans-serif;
+  color: #fff5e1;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+// Letra individual com animação
+export const Letter = styled.span<{ delay: number }>`
+  opacity: 0;
+  animation: ${fadeIn} 0.5s forwards;
+  animation-delay: ${(props) => props.delay}s;
+  font-size: 40px;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    font-size: 32px;
+  }
+
+  @media (min-width: 1025px) {
+    font-size: 40px;
   }
 `;
 
@@ -75,9 +109,8 @@ export const FunnyButton = styled(BaseButton)`
   &:hover {
     background: #c80036;
     box-shadow: 0px 0px 30px #c80036;
-    transition: 0.6s;
+    transition: 1s;
     transform: translateY(-5px);
-    font-weight: bold;
   }
 `;
 
@@ -94,9 +127,8 @@ export const YesButton = styled(BaseButton)`
   &:hover {
     background: #508d4e;
     box-shadow: 0px 0px 30px #508d4e;
-    transition: 0.8s;
+    transition: 1s;
     transform: translateY(-5px);
-    font-weight: bold;
   }
 `;
 

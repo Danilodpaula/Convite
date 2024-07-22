@@ -19,30 +19,14 @@ export const MainContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: auto;
+  height: fit-content;
   padding: 2rem 2rem 2rem 2rem;
+  background: none;
 
   @media (max-width: 768px) {
     padding: 10px;
   }
 `;
-
-// // Container dos cards
-// export const CardsContainer = styled.div`
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: center;
-//   align-items: center;
-//   width: 50vw;
-//   height: 25vh;
-//   gap: 10px;
-//   margin-top: -350px;
-
-//   @media (max-width: 768px) {
-//     width: 50vw;
-//     height: auto;
-//   }
-// `;
 
 // Estilo dos cards individuais
 export const Card = styled.div`
@@ -203,4 +187,35 @@ export const VideoBackground = styled.video`
   height: 100%;
   object-fit: cover;
   z-index: -1;
+`;
+
+// Container dos cards
+export const CardsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  gap: 10px;
+  background: transparent;
+
+  @media (max-width: 1200px) {
+    width: 70vw;
+  }
+
+  @media (max-width: 992px) {
+    width: 80vw;
+  }
+
+  @media (max-width: 768px) {
+    width: 90vw;
+  }
+`;
+
+export const ZapLogo = styled.img`
+  transition: transform 0.3s ease, filter 0.3s ease;
+  &:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+  }
 `;

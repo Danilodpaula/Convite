@@ -1,28 +1,37 @@
-import { useEffect } from "react";
+import { useEffect, ReactNode } from "react";
 import { Title, Letter } from "./styles";
 
-export const AnimatedTitle = ({
+interface AnimatedTitleProps {
+  text?: string;
+  onComplete?: () => void;
+  children?: ReactNode;
+}
+
+export const AnimatedTitle: React.FC<AnimatedTitleProps> = ({
   text,
   onComplete,
-}: {
-  text: string;
-  onComplete?: () => void;
+  children,
 }) => {
+  
   useEffect(() => {
-    if (onComplete) {
+    if (onComplete && text) {
       const duration = text.length * 0.1 * 1000 + 500; // Delay
       const timer = setTimeout(onComplete, duration);
       return () => clearTimeout(timer);
     }
   }, [text, onComplete]);
 
-  return (
-    <Title>
-      {text.split("").map((char, index) => (
-        <Letter key={index} delay={index * 0.1}>
-          {char === " " ? "\u00A0" : char}
-        </Letter>
-      ))}
-    </Title>
-  );
+  if (text) {
+    return (
+      <Title>
+        {text.split("").map((char, index) => (
+          <Letter key={index} delay={index * 0.1}>
+            {char === " " ? "\u00A0" : char}
+          </Letter>
+        ))}
+      </Title>
+    );
+  }
+
+  return <Title>{children}</Title>;
 };

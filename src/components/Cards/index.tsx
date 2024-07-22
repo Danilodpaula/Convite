@@ -1,14 +1,15 @@
-import React from 'react';
-import { CardContainer, CardImage, CardDescription } from './styles';
+import React from "react";
+import { CardImage, CardDescription, CardContainer } from "./styles";
 
 interface CardProps {
-  imageSrc: string;
+  imageSrc: any;
   description: string;
+  onClick?: () => void;
 }
 
-const Card: React.FC<CardProps> = ({ imageSrc, description }) => {
+const Card: React.FC<CardProps> = ({ imageSrc, description, onClick }) => {
   return (
-    <CardContainer>
+    <CardContainer onClick={onClick}>
       <CardImage src={imageSrc} alt={description} />
       <CardDescription>{description}</CardDescription>
     </CardContainer>
