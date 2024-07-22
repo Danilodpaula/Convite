@@ -81,7 +81,7 @@ export function MainPage() {
               )}
               {showButtons && (
                 <AnimatedButton delay={1}>
-                  <FunnyButton onClick={() => navigate("/")}>Não!</FunnyButton>
+                  <FunnyButton onClick={() => navigate("/again")}>Não!</FunnyButton>
                 </AnimatedButton>
               )}
             </ButtonContainer>
