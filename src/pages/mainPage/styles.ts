@@ -27,34 +27,6 @@ export const MainContainer = styled.div`
   }
 `;
 
-// Título com animação e responsividade
-export const Title = styled.h1`
-  font-family: "Montserrat", sans-serif;
-  color: #fff5e1;
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-// Letra individual com animação
-export const Letter = styled.span<{ delay: number }>`
-  opacity: 0;
-  animation: ${fadeIn} 0.5s forwards;
-  animation-delay: ${(props) => props.delay}s;
-  font-size: 40px;
-
-  @media (max-width: 768px) {
-    font-size: 24px;
-  }
-
-  @media (min-width: 769px) and (max-width: 1024px) {
-    font-size: 32px;
-  }
-
-  @media (min-width: 1025px) {
-    font-size: 40px;
-  }
-`;
-
 // Container dos botões
 export const ButtonContainer = styled.div`
   display: flex;
@@ -124,6 +96,13 @@ export const YesButton = styled(BaseButton)`
     transition: 1s;
     transform: translateY(-5px);
   }
+`;
+
+// Animação de entrada dos botões
+export const AnimatedButton = styled.div<{ delay: number }>`
+  opacity: 0;
+  animation: ${fadeIn} 0.5s forwards;
+  animation-delay: ${(props) => props.delay}s;
 `;
 
 export const VideoBackground = styled.video`

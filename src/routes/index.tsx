@@ -1,7 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { MainPage } from '../pages/main';
-import { SecondPage } from '../pages/second';
+import { MainPage } from '../pages/mainPage';
+import { OptionsPage } from '../pages/optionsPage';
+import { ThirdPage } from '../pages/ThirdPage';
 
 const RoutesSystem: React.FC = () => {
   return (
@@ -13,9 +14,15 @@ const RoutesSystem: React.FC = () => {
           }
         />
         <Route
-          path="/second"
+          path="/OqFaremos?"
           element={
-              <SecondPage />
+              <OptionsPage />
+          }
+        />
+         <Route
+          path="/Beleza!"
+          element={
+              <ThirdPage />
           }
         />
     </Routes>
