@@ -31,10 +31,13 @@ export function OptionsPage() {
             onComplete={() => setShowSecondTitle(true)}
           />
           {showSecondTitle && (
-            <AnimatedTitle
-              text="Clique em uma opção:"
-              onComplete={() => setShowCards(true)}
-            />
+            <>
+              <AnimatedTitle
+                text="Clique em uma opção:"
+                onComplete={() => setShowCards(true)}
+              />
+              <br />
+            </>
           )}
         </>
       )}
